@@ -20,7 +20,6 @@ Future getProducts() async {
   return products;
 }
 ```
-You can find a full example [here](example/fetch_products.dart)
 
 ### POST request (Create a customer)
 ```dart
@@ -42,6 +41,3 @@ Future createCustomer() async {
   }
 }
 ```
-
-### Report any issues if you face any or drop me an email at samarthagarwal@live.com
-

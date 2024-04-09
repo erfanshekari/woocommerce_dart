@@ -1,6 +1,5 @@
 library woocommerce_api;
 
-import 'dart:async';
 import "dart:collection";
 import 'dart:convert';
 import 'dart:io';
@@ -49,7 +48,7 @@ class WooCommerceAPI {
     String consumerSecret = this.consumerSecret;
 
     String token = "";
-    String url = this.url + "/wp-json/wc/v2/" + endpoint;
+    String url = this.url + "/wp-json/wc/v3/" + endpoint;
     bool containsQueryParams = url.contains("?");
 
     if (this.isHttps == true) {
@@ -142,7 +141,6 @@ class WooCommerceAPI {
           "&oauth_signature=" +
           Uri.encodeQueryComponent(finalSignature);
     }
-
     return requestUrl;
   }
 
@@ -165,7 +163,6 @@ class WooCommerceAPI {
 
   Future<dynamic> getAsync(String endPoint) async {
     String url = this._getOAuthURL("GET", endPoint);
-
     try {
       final http.Response response = await http.get(Uri.parse(url));
       if (response.statusCode == 200) {
